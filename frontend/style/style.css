@@ -240,17 +240,17 @@ iframe {
 }
 
 #pay-button:active {
-    background-color: #0b2a49;
+    background-color: #00008B;
     box-shadow: 0 1px 3px 0 rgba(19, 57, 94, 0.4);
 }
 
 #pay-button:hover {
-    background-color: #15406b;
+    background-color: #0000CD;
     box-shadow: 0 2px 5px 0 rgba(19, 57, 94, 0.4);
 }
 
 #pay-button:disabled {
-    background-color: #697887;
+    background-color: #ADD8E6;
     box-shadow: none;
 }
 
@@ -286,7 +286,7 @@ iframe {
 }
 
 .error-message {
-    color: #c9501c;
+    color: red;
     font-size: 0.9rem;
     margin: 8px 0 0 1px;
     font-weight: 300;
@@ -298,7 +298,7 @@ iframe {
 }
 
 .payment-response {
-    color: #b35e14;
+    color: green;
     font-size: 0.9rem;
     font-family: monospace;
 }

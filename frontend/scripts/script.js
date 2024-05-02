@@ -5,12 +5,13 @@ var errorStack = [];
 Frames.init({
   publicKey: "pk_sbox_yhnqetltlhjsubv7nrmljlapvqb",
   modes: [Frames.modes.DISABLE_COPY_PASTE],
-  localization: {
-    cardNumberPlaceholder: "卡号",
-    expiryMonthPlaceholder: "月",
-    expiryYearPlaceholder: "年",
-    cvvPlaceholder: "CVV",
-  },
+  localization: "ZH-HK",
+  //   localization: {
+  //     cardNumberPlaceholder: "卡号",
+  //     expiryMonthPlaceholder: "月",
+  //     expiryYearPlaceholder: "年",
+  //     cvvPlaceholder: "CVV",
+  //   },
 });
 
 // Only enable the payment button when the payment form is valid
@@ -28,6 +29,7 @@ form.addEventListener("submit", function (event) {
     name: "Xiaodong Yu",
     billingAddress: {
       addressLine1: "123 Main Street",
+      addressLine2: "Apartment 4",
       zip: "12345",
       city: "London",
       state: "London",
@@ -46,7 +48,7 @@ Frames.addEventHandler(Frames.Events.CARD_TOKENIZED, (event) => {
   http(
     {
       method: "POST",
-      route: "/payments",
+      route: "/pay",
       body: {
         token: event.token, // the card token
       },
@@ -102,7 +104,6 @@ const http = ({ method, route, body }, callback) => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization: "Bearer sk_sbox_z73fnqbbk6bbxznf66tbntbu4mo",
     },
     body: JSON.stringify(body),
   };
@@ -111,8 +112,7 @@ const http = ({ method, route, body }, callback) => {
     delete requestData.body;
   }
 
-  //   ${window.location.origin}
-  fetch(`https://api.sandbox.checkout.com${route}`, requestData)
+  fetch(`${window.location.origin}${route}`, requestData)
     .then((res) => res.json())
     .then((data) => callback(data))
     .catch((er) => console.log(er));
