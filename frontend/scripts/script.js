@@ -46,7 +46,7 @@ Frames.addEventHandler(Frames.Events.CARD_TOKENIZED, (event) => {
   http(
     {
       method: "POST",
-      route: "/pay",
+      route: "/payments",
       body: {
         token: event.token, // the card token
       },
@@ -102,6 +102,7 @@ const http = ({ method, route, body }, callback) => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
+      Authorization: "Bearer sk_sbox_z73fnqbbk6bbxznf66tbntbu4mo",
     },
     body: JSON.stringify(body),
   };
@@ -110,7 +111,8 @@ const http = ({ method, route, body }, callback) => {
     delete requestData.body;
   }
 
-  fetch(`${window.location.origin}${route}`, requestData)
+  //   ${window.location.origin}
+  fetch(`https://api.sandbox.checkout.com${route}`, requestData)
     .then((res) => res.json())
     .then((data) => callback(data))
     .catch((er) => console.log(er));
