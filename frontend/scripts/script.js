@@ -3,7 +3,7 @@ var form = document.getElementById("payment-form");
 var errorStack = [];
 
 Frames.init({
-  publicKey: "pk_sbox_kms5vhdb66lgxsgzlgv4dgy3ziy",
+  publicKey: "pk_sbox_yhnqetltlhjsubv7nrmljlapvqb",
   modes: [Frames.modes.DISABLE_COPY_PASTE],
   localization: {
     cardNumberPlaceholder: "卡号",
@@ -46,7 +46,7 @@ Frames.addEventHandler(Frames.Events.CARD_TOKENIZED, (event) => {
   http(
     {
       method: "POST",
-      route: "https://api.sandbox.checkout.com/payments",
+      route: "/pay",
       body: {
         token: event.token, // the card token
       },
