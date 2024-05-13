@@ -1,107 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <title>XD iPhone Case</title>
-    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="./style/style.css">
-</head>
+  <head>
+      <meta charset="UTF-8">
+      <title>XD iPhone Case</title>
+      <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
+      <link rel="stylesheet" href="./style/style.css">
+  </head>
 
-<body>
-    <div class="container">
-        <div class="payment_details">
-          <h1>Payment Information</h1>
-          <div class="details_card">
-            <div class="name_address">
-              <div class="first_lastName">
-                <input type="text" placeholder="First Name" />
-                <input type="text" placeholder="Last Name" />
+  <body>
+      <div class="outcontainer">
+          <div class="payment_details">
+            <h1>Payment Information</h1>
+              <!-- <div class="name_address">
+                <div class="first_lastName">
+                  <input type="text" placeholder="First Name" />
+                  <input type="text" placeholder="Last Name" />
+                </div>
+                <div class="address">
+                  <input type="text" onkeyup="change()" id="put" placeholder="Address" />
+                  <input type="text" placeholder="Country" />
+                </div>
+              </div> -->
+              
+              <!-- Checkout payment form -->
+              <!-- <form id="payment-form" method="POST">
+                  <div class="one-liner">
+                      <div class="card-frame"></div>
+                      <button id="pay-button" disabled>
+                          PAY NOW
+                      </button>
+                  </div>
+                  <p class="error-message"></p>
+                  <p class="payment-message"></p>
+              </form> -->
+
+              <div id="successToast" class="toast success">
+                <span>The payment was successful</span>
               </div>
-              <div class="address">
-                <input type="text" onkeyup="change()" id="put" placeholder="Address" />
-                <input type="text" placeholder="Country" />
+    
+              <div id="failedToast" class="toast failed">
+                  <span>The payment failed, try again</span>
+              </div>
+    
+              <form>
+                  <div class="container">
+                      <div id="flow-container"></div>
+                  </div>
+                  <span id="error-message"></span>
+                  <span id="successful-payment-message"></span>
+              </form>
+          </div>
+
+          <!-- Orders -->
+          <div class="order_summary">
+            <h1>Order Summary</h1>
+            <div class="summary_card">
+              <div class="card_item">
+                <div class="product_img">
+                  <img src="./images/logo.png" alt="" />
+                </div>
+                <div class="product_info">
+                  <h1>iPhone 13 Case</h1>
+                  <p>Pink</p>
+                  <div class="close-btn">
+                    <i class="fa fa-close"></i>
+                  </div>
+                  <div class="product_rate_info">
+                    <h1>$ 100</h1>
+                    <span class="pqt-minus">-</span>
+                    <span class="pqt">1</span>
+                    <span class="pqt-plus">+</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card_item">
+                <div class="product_img">
+                  <img src="./images/logo.png" alt="" />
+                </div>
+                <div class="product_info">
+                  <h1>iPhone 14 Case</h1>
+                  <p>Blue</p>
+                  <div class="close-btn">
+                    <i class="fa fa-close"></i>
+                  </div>
+                  <div class="product_rate_info">
+                    <h1>$ 100</h1>
+                    <span class="pqt-minus">-</span>
+                    <span class="pqt">1</span>
+                    <span class="pqt-plus">+</span>
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <div class="order_total">
+                <p>Total Amount</p>
+                <h4>$ 200</h4>
               </div>
             </div>
-            
-            <!-- Checkout payment form -->
-            <form id="payment-form" method="POST">
-                <div class="one-liner">
-                    <div class="card-frame"></div>
-                    <button id="pay-button" disabled>
-                        PAY NOW
-                    </button>
-                </div>
-                <p class="error-message"></p>
-                <p class="payment-message"></p>
-            </form>
-
           </div>
         </div>
 
-        <!-- Orders -->
-        <div class="order_summary">
-          <h1>Order Summary</h1>
-          <div class="summary_card">
-            <div class="card_item">
-              <div class="product_img">
-                <img src="./images/logo.png" alt="" />
-              </div>
-              <div class="product_info">
-                <h1>iPhone 13 Case</h1>
-                <p>Pink</p>
-                <div class="close-btn">
-                  <i class="fa fa-close"></i>
-                </div>
-                <div class="product_rate_info">
-                  <h1>$ 100</h1>
-                  <span class="pqt-minus">-</span>
-                  <span class="pqt">1</span>
-                  <span class="pqt-plus">+</span>
-                </div>
-              </div>
-            </div>
-            <div class="card_item">
-              <div class="product_img">
-                <img src="./images/logo.png" alt="" />
-              </div>
-              <div class="product_info">
-                <h1>iPhone 14 Case</h1>
-                <p>Blue</p>
-                <div class="close-btn">
-                  <i class="fa fa-close"></i>
-                </div>
-                <div class="product_rate_info">
-                  <h1>$ 100</h1>
-                  <span class="pqt-minus">-</span>
-                  <span class="pqt">1</span>
-                  <span class="pqt-plus">+</span>
-                </div>
-              </div>
-            </div>
-            <hr />
-            <div class="order_total">
-              <p>Total Amount</p>
-              <h4>$ 200</h4>
-            </div>
+      <!-- <form id="payment-form" method="POST">
+          <div class="one-liner">
+              <div class="card-frame"></div>
+              <button id="pay-button" disabled>
+                  PAY GBP 24.99
+              </button>
           </div>
-        </div>
-      </div>
+          <p class="error-message"></p>
+          <p class="payment-message"></p>
+      </form> -->
 
-    <!-- <form id="payment-form" method="POST">
-        <div class="one-liner">
-            <div class="card-frame"></div>
-            <button id="pay-button" disabled>
-                PAY GBP 24.99
-            </button>
-        </div>
-        <p class="error-message"></p>
-        <p class="payment-message"></p>
-    </form> -->
-
-    <script src="https://cdn.checkout.com/js/framesv2.min.js"></script>
-    <script src="https://checkout-web-components.checkout.com/index.js"></script>
-    <script src="./scripts/script.js"></script>
-</body>
-
+      <script src="https://cdn.checkout.com/js/framesv2.min.js"></script>
+      <script src="https://checkout-web-components.checkout.com/index.js"></script>
+      <script src="./scripts/app.js"></script>
+  </body>
 </html>
