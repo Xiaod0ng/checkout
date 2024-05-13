@@ -58,8 +58,8 @@ router.post("/create-payment-sessions", async (_req, res) => {
         risk: {
           enabled: true,
         },
-        success_url: "http://localhost:3000/?status=succeeded",
-        failure_url: "http://localhost:3000/?status=failed",
+        success_url: "http://localhost:4242/?status=succeeded",
+        failure_url: "http://localhost:4242/?status=failed",
         metadata: {},
         items: [
           {
