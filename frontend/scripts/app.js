@@ -14,7 +14,7 @@
   const checkout = await CheckoutWebComponents({
     publicKey: PUBLIC_KEY,
     environment: "sandbox",
-    locale: "en-GB",
+    locale: "zh-HK",
     paymentSession,
     onReady: () => {
       console.log("onReady");
@@ -62,4 +62,5 @@ if (paymentStatus === "failed") {
 
 if (paymentId) {
   console.log("Create Payment with PaymentId: ", paymentId);
+  console.log("Payment Status: ", paymentStatus);
 }

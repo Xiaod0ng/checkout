@@ -16,11 +16,11 @@ router.post("/create-payment-sessions", async (_req, res) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        amount: 6540,
-        currency: "GBP",
+        amount: 20000,
+        currency: "HKD",
         processing_channel_id: process.env.PROCESSING_CHANNEL,
         reference: "ORD-123A",
-        description: "Payment for Guitars and Amps",
+        description: "Payment for phone case",
         billing_descriptor: {
           name: "Jia Tsang",
           city: "London",
@@ -61,16 +61,19 @@ router.post("/create-payment-sessions", async (_req, res) => {
         success_url: "http://localhost:4242/?status=succeeded",
         failure_url: "http://localhost:4242/?status=failed",
         metadata: {},
+        "3ds": {
+          enabled: true,
+        },
         items: [
           {
-            name: "Guitar",
+            name: "iPhone 13 Case",
             quantity: 1,
-            unit_price: 1635,
+            unit_price: 10000,
           },
           {
-            name: "Amp",
-            quantity: 3,
-            unit_price: 1635,
+            name: "iPhone 14 Case",
+            quantity: 1,
+            unit_price: 10000,
           },
         ],
       }),
